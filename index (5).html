@@ -1,0 +1,1654 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0916">
+  <meta name="description" content="Download GTA VI Mobile Edition for Android (APK) and iOS (IPA). Experience Vice City & Leonida on your smartphone for free.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LUCIA VI Mobile — Free Download for iOS & Android">
+  <meta property="og:description" content="Get GTA VI Mobile Edition for Android and iPhone. Full Vice City open-world experience optimized for mobile devices.">
+  <title>LUCIA VI Mobile — Free Download for iOS & Android</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0c0916;
+      --bg-card: #151126;
+      --bg-card-hover: #1d1735;
+      --pink: #ff2a85;
+      --purple: #8b3dff;
+      --cyan: #00e5ff;
+      --amber: #ffbe0b;
+      --green: #3ddc84;
+      --sunset: linear-gradient(135deg, #ff7b00 0%, #ff2a85 50%, #8b3dff 100%);
+      --text: #ffffff;
+      --text-muted: #a8a3c7;
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .wordmark, .brand-logo, .section-kicker, .eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+    }
+
+    a, button {
+      color: inherit;
+      text-decoration: none;
+      font-family: inherit;
+    }
+
+    /* Scroll Progress Bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--sunset);
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+
+    /* Topbar */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 5%;
+      background: rgba(12, 9, 22, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Custom LUCIA VI Emblem Logo */
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo-emblem {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px 10px;
+      border-radius: 8px;
+      background: linear-gradient(145deg, rgba(255, 42, 133, 0.2), rgba(139, 61, 255, 0.22));
+      border: 1px solid rgba(255, 42, 133, 0.55);
+      box-shadow: 0 0 18px rgba(255, 42, 133, 0.28), inset 0 0 10px rgba(0, 229, 255, 0.12);
+      overflow: hidden;
+    }
+
+    .logo-emblem::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.28) 50%, transparent 75%);
+      transform: translateX(-140%);
+      animation: logoShine 4.5s ease-in-out infinite;
+    }
+
+    @keyframes logoShine {
+      0%, 70% { transform: translateX(-140%); }
+      100% { transform: translateX(140%); }
+    }
+
+    .logo-main {
+      font-size: 25px;
+      line-height: 1;
+      letter-spacing: 1.5px;
+      color: #fff;
+    }
+
+    .logo-vi {
+      font-size: 27px;
+      line-height: 1;
+      margin-left: 4px;
+      background: var(--sunset);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 8px rgba(255, 42, 133, 0.45));
+    }
+
+    .brand-logo span.badge {
+      font-size: 11px;
+      background: rgba(0, 229, 255, 0.15);
+      color: var(--cyan);
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .voice-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 13px;
+      border-radius: 50px;
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      background: rgba(0, 229, 255, 0.1);
+      color: var(--cyan);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .voice-btn:hover {
+      background: rgba(0, 229, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .voice-btn.speaking {
+      border-color: var(--pink);
+      background: rgba(255, 42, 133, 0.2);
+      color: #ff94c2;
+      box-shadow: 0 0 15px rgba(255, 42, 133, 0.35);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: var(--sunset);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 50px;
+      background: var(--sunset);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(255, 42, 133, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 42, 133, 0.55);
+    }
+
+    /* Live Download Activity Ticker */
+    .live-ticker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(21, 17, 38, 0.9);
+      border: 1px solid rgba(61, 220, 132, 0.28);
+      padding: 8px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .live-ticker b {
+      color: #fff;
+    }
+
+    .live-ticker .os-tag {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 40px;
+      padding: 120px 5% 80px;
+      background: radial-gradient(circle at 75% 25%, rgba(255, 42, 133, 0.24), transparent 50%),
+                  radial-gradient(circle at 18% 80%, rgba(0, 229, 255, 0.14), transparent 45%),
+                  linear-gradient(180deg, #160e29 0%, var(--bg) 100%);
+      overflow: hidden;
+    }
+
+    .sun {
+      position: absolute;
+      right: 12%;
+      top: 14%;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #ffbe0b 0%, #ff2a85 68%, transparent 100%);
+      opacity: 0.28;
+      filter: blur(4px);
+      pointer-events: none;
+      animation: floatSun 7s ease-in-out infinite;
+    }
+
+    @keyframes floatSun {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-16px) scale(1.04); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 660px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--cyan);
+      margin-bottom: 14px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+      animation: pulse 1.8s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.35); }
+    }
+
+    .hero h1 {
+      font-size: clamp(56px, 8vw, 98px);
+      font-weight: 900;
+      line-height: 0.92;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 em, h2 em {
+      font-style: normal;
+      background: var(--sunset);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-copy {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      max-width: 560px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s, background 0.25s;
+    }
+
+    .btn-primary {
+      background: var(--sunset);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(255, 42, 133, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(255, 42, 133, 0.55);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+    }
+
+    .meta-mark {
+      background: #fff;
+      color: var(--bg);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 900;
+    }
+
+    .hero-meta i {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--pink);
+    }
+
+    /* Hero Gaming Showcase Visual */
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .showcase-card {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: var(--bg-card);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+      animation: cardFloat 6s ease-in-out infinite;
+    }
+
+    .showcase-card.main-shot {
+      grid-column: span 2;
+      height: 270px;
+    }
+
+    .showcase-card.sub-shot {
+      height: 175px;
+      animation-delay: 1.5s;
+    }
+
+    .showcase-card.sub-shot:last-child {
+      animation-delay: 3s;
+    }
+
+    @keyframes cardFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .showcase-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .showcase-card:hover img {
+      transform: scale(1.07);
+    }
+
+    .showcase-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 25%, rgba(12, 9, 22, 0.92) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 18px;
+    }
+
+    .tag-pill {
+      align-self: flex-start;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 4px;
+      background: rgba(255, 42, 133, 0.25);
+      border: 1px solid rgba(255, 42, 133, 0.5);
+      color: #ff85b8;
+      margin-bottom: 6px;
+    }
+
+    .showcase-overlay strong {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.5px;
+      line-height: 1.05;
+    }
+
+    .showcase-overlay span {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Sections Layout */
+    .section-wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 90px 5%;
+    }
+
+    .section-kicker {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: var(--pink);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    h2 {
+      font-size: clamp(40px, 6vw, 66px);
+      font-weight: 900;
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    /* Download Section */
+    .download-section {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .download-heading p {
+      color: var(--text-muted);
+      max-width: 620px;
+      margin-bottom: 36px;
+    }
+
+    .mobile-download-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .mobile-download-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .mobile-download-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--pink);
+      background: var(--bg-card-hover);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-thumb {
+      position: relative;
+      height: 170px;
+      overflow: hidden;
+    }
+
+    .card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .mobile-download-card:hover .card-thumb img {
+      transform: scale(1.06);
+    }
+
+    .card-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 30%, var(--bg-card) 100%);
+    }
+
+    .card-body {
+      padding: 24px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .mobile-platform-icon {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+
+    .mobile-platform-icon.android {
+      background: rgba(61, 220, 132, 0.15);
+      color: #3ddc84;
+    }
+
+    .mobile-platform-icon.apple {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+
+    .file-version {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .mobile-card-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .mobile-card-copy {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .specs-mini {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+
+    .specs-mini span b {
+      color: #fff;
+    }
+
+    .btn-download-card {
+      width: 100%;
+      padding: 14px;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-android {
+      background: #3ddc84;
+      color: #081c11;
+    }
+
+    .btn-android:hover {
+      background: #4ef096;
+      box-shadow: 0 8px 24px rgba(61, 220, 132, 0.35);
+    }
+
+    .btn-ios {
+      background: #ffffff;
+      color: #0c0916;
+    }
+
+    .btn-ios:hover {
+      background: #ececec;
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+    }
+
+    /* Requirements Box */
+    .mobile-requirements {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--cyan);
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .req-col strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .req-col span {
+      display: block;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* World & Game Gallery Section */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 44px;
+    }
+
+    .intro-copy p {
+      color: var(--text-muted);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .game-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .game-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(255, 42, 133, 0.55);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .game-card-img {
+      position: relative;
+      height: 205px;
+      overflow: hidden;
+    }
+
+    .game-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .game-card:hover .game-card-img img {
+      transform: scale(1.08);
+    }
+
+    .game-card-num {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      padding: 2px 10px;
+      border-radius: 6px;
+      background: rgba(12, 9, 22, 0.78);
+      backdrop-filter: blur(6px);
+      color: var(--cyan);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .game-card-content {
+      padding: 22px 24px 26px;
+    }
+
+    .game-card-content h3 {
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
+
+    .game-card-content p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* Recent Player Downloads & Reviews */
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .activity-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 229, 255, 0.45);
+    }
+
+    .activity-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 8px;
+    }
+
+    .player-badge {
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .device-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 50px;
+      background: rgba(0, 229, 255, 0.12);
+      color: var(--cyan);
+    }
+
+    .stars-row {
+      color: var(--amber);
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .activity-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .activity-meta {
+      font-size: 12px;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* Steps Section */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--cyan);
+    }
+
+    .step-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--pink);
+      background: rgba(255, 42, 133, 0.12);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .step-card h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Floating Toast Notification */
+    .toast-popup {
+      position: fixed;
+      bottom: 22px;
+      left: 22px;
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(21, 17, 38, 0.96);
+      border: 1px solid rgba(61, 220, 132, 0.35);
+      backdrop-filter: blur(12px);
+      padding: 12px 16px;
+      border-radius: 14px;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55);
+      max-width: 340px;
+      transform: translateY(120px);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+    }
+
+    .toast-popup.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(61, 220, 132, 0.16);
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .toast-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .toast-text b {
+      color: #fff;
+      display: block;
+      font-size: 13px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 36px 5%;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Verification & Content Locker Pop-up Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 5, 14, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      display: none;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: grid;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 42, 133, 0.35);
+      border-radius: 20px;
+      max-width: 480px;
+      width: 100%;
+      padding: 32px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.75);
+      animation: popIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.94) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      color: var(--text-muted);
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+    }
+
+    .locker-symbol {
+      min-width: 78px;
+      height: 54px;
+      padding: 0 16px;
+      border-radius: 14px;
+      background: var(--sunset);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin: 0 auto 16px;
+      box-shadow: 0 8px 25px rgba(255, 42, 133, 0.35);
+    }
+
+    .modal-box h3 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .modal-box p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .progress-bar-wrap {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--sunset);
+      transition: width 0.3s ease;
+    }
+
+    .progress-status {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    /* Content Locker Pop-up Box inside Modal */
+    .locker-popup-box {
+      display: none;
+      margin-top: 8px;
+      padding: 20px;
+      border-radius: 14px;
+      background: rgba(12, 9, 22, 0.72);
+      border: 1.5px dashed rgba(255, 42, 133, 0.55);
+      text-align: center;
+    }
+
+    .locker-popup-box.active {
+      display: block;
+    }
+
+    .locker-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: rgba(255, 190, 11, 0.14);
+      padding: 4px 10px;
+      border-radius: 50px;
+      margin-bottom: 10px;
+    }
+
+    .locker-popup-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .locker-popup-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .locker-embed-slot {
+      padding: 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .locker-iframe {
+      width: 100%;
+      height: 240px;
+      border: 0;
+      border-radius: 10px;
+      background: #0c0916;
+    }
+
+    .btn-locker-open {
+      width: 100%;
+      padding: 13px 18px;
+      border-radius: 9px;
+      background: var(--sunset);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 6px 20px rgba(255, 42, 133, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-locker-open:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(255, 42, 133, 0.55);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 110px;
+      }
+      .hero-visual {
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .intro-grid, .gallery-grid, .mobile-download-grid, .steps-grid, .mobile-requirements, .activity-grid {
+        grid-template-columns: 1fr;
+      }
+      .toast-popup {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        max-width: none;
+      }
+      .footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="topbar">
+    <a class="brand-logo" href="#top" aria-label="LUCIA VI Mobile home">
+      <span class="logo-emblem">
+        <span class="logo-main">LUCIA</span>
+        <span class="logo-vi">VI</span>
+      </span>
+      <span class="badge">MOBILE</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#download">Download</a>
+      <a href="#gallery">Game World</a>
+      <a href="#players">Recent Downloads</a>
+      <a href="#install">How to Install</a>
+    </nav>
+    <div class="topbar-right">
+      <button class="voice-btn" id="voiceReplayBtn" type="button" onclick="playLuciaAudio(true)" aria-label="Play Lucia voice welcome">
+        <span>🔊</span> <span id="voiceBtnText">Lucia Voice</span>
+      </button>
+      <a class="nav-cta" href="#download">Free Download ↓</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="sun" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="live-ticker" aria-live="polite">
+          <span class="live-dot"></span>
+          <span><b id="tickerUser">Alex R.</b> downloaded <span class="os-tag" id="tickerPlatform">Android APK</span> • <span id="tickerTime">just now</span></span>
+        </div>
+        <div class="eyebrow"><span class="live-dot"></span> LUCIA VI MOBILE HUB • v1.4.2 — 148,920+ DOWNLOADS</div>
+        <h1>GTA VI<br><em>ON MOBILE.</em></h1>
+        <p class="hero-copy">Experience neon Vice City nights, high-speed street chases, and the open world of Leonida directly on your phone. Smooth touch controls, 60 FPS mode, and controller support for iOS &amp; Android.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="startDownload('Android APK (v1.4.2)')">DOWNLOAD FOR ANDROID (APK)</button>
+          <button class="btn btn-ghost" onclick="startDownload('iOS IPA / Profile (v1.4.2)')">DOWNLOAD FOR iOS (iPHONE)</button>
+        </div>
+        <div class="hero-meta">
+          <span class="meta-mark">FREE</span>
+          <span>ANDROID 11+</span><i></i>
+          <span>iOS 15+</span><i></i>
+          <span>60 FPS READY</span>
+        </div>
+      </div>
+
+      <!-- Gaming Visual Showcase -->
+      <div class="hero-visual">
+        <div class="showcase-card main-shot">
+          <img src="https://i.postimg.cc/C5g4sfy3/images-(49).jpg" alt="Neon gaming setup and high-speed action">
+          <div class="showcase-overlay">
+            <span class="tag-pill">VICE CITY NIGHTS</span>
+            <strong>HIGH-OCTANE OPEN WORLD</strong>
+            <span>Dynamic lighting, street racing &amp; mobile touch HUD</span>
+          </div>
+        </div>
+        <div class="showcase-card sub-shot">
+          <img src="https://i.postimg.cc/VL4FX67m/images-(50).jpg" alt="Gaming controller and arcade action">
+          <div class="showcase-overlay">
+            <span class="tag-pill">CONTROLLER</span>
+            <strong>GAMEPAD SUPPORT</strong>
+            <span>DualSense &amp; Xbox ready</span>
+          </div>
+        </div>
+        <div class="showcase-card sub-shot">
+          <img src="https://i.postimg.cc/FzNjL53X/images-(51).jpg" alt="Retro neon synthwave and arcade aesthetics">
+          <div class="showcase-overlay">
+            <span class="tag-pill">PERFORMANCE</span>
+            <strong>60 FPS ENGINE</strong>
+            <span>Smooth mobile scaling</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section" id="download">
+      <div class="section-wrap reveal">
+        <span class="section-kicker">01 — SELECT YOUR DEVICE</span>
+        <div class="download-heading">
+          <h2>CHOOSE YOUR<br><em>PLATFORM.</em></h2>
+          <p>Select your operating system below to prepare your installer package for Android or iOS.</p>
+        </div>
+
+        <div class="mobile-download-grid">
+          <!-- Android Card -->
+          <div class="mobile-download-card">
+            <div class="card-thumb">
+              <img src="https://i.postimg.cc/J4TbGFhF/images-(2).png" alt="Android mobile gaming setup">
+            </div>
+            <div class="card-body">
+              <div class="card-header-row">
+                <span class="mobile-platform-icon android">ANDROID APK + OBB</span>
+                <span class="file-version">v1.4.2 • 94,310 Downloads</span>
+              </div>
+              <div class="mobile-card-title">GTA VI FOR ANDROID</div>
+              <p class="mobile-card-copy">Includes compressed APK installer + texture bundle tuned for modern Android smartphones and tablets.</p>
+              <div class="specs-mini">
+                <span>Size: <b>3.8 GB</b></span>
+                <span>OS: <b>Android 11.0+</b></span>
+                <span>RAM: <b>6 GB+</b></span>
+              </div>
+              <button class="btn-download-card btn-android" onclick="startDownload('Android APK (3.8 GB)')">DOWNLOAD ANDROID APK ↓</button>
+            </div>
+          </div>
+
+          <!-- iOS Card -->
+          <div class="mobile-download-card">
+            <div class="card-thumb">
+              <img src="https://i.postimg.cc/FKScCsx0/images-(3).png" alt="iPhone and console gaming screen">
+            </div>
+            <div class="card-body">
+              <div class="card-header-row">
+                <span class="mobile-platform-icon apple">iOS / iPadOS</span>
+                <span class="file-version">v1.4.2 • 54,610 Downloads</span>
+              </div>
+              <div class="mobile-card-title">GTA VI FOR iOS</div>
+              <p class="mobile-card-copy">Installer package for iPhone and iPad with smooth frame pacing and customizable on-screen controls.</p>
+              <div class="specs-mini">
+                <span>Size: <b>4.1 GB</b></span>
+                <span>OS: <b>iOS 15.0+</b></span>
+                <span>Chip: <b>A14 Bionic+</b></span>
+              </div>
+              <button class="btn-download-card btn-ios" onclick="startDownload('iOS Installer (4.1 GB)')">DOWNLOAD FOR iOS ↓</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-requirements">
+          <div class="req-col">
+            <strong>Android Requirements</strong>
+            <span>• Android 11 or newer • 6 GB RAM minimum • 6 GB free storage space</span>
+          </div>
+          <div class="req-col">
+            <strong>iOS Requirements</strong>
+            <span>• iPhone 12 / iPad Air 4 or newer • iOS 15.0 or higher • 6 GB free storage space</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game World & Screenshots Gallery -->
+    <section class="intro section-wrap" id="gallery">
+      <span class="section-kicker reveal">02 — GAME WORLD &amp; ACTION</span>
+      <div class="intro-grid reveal">
+        <div>
+          <h2>EXPLORE<br><em>LEONIDA.</em></h2>
+        </div>
+        <div class="intro-copy">
+          <p>From vibrant neon avenues and coastal highways to high-speed pursuits and story missions, get a look at the visual vibe of the mobile experience.</p>
+        </div>
+      </div>
+
+      <div class="gallery-grid reveal">
+        <article class="game-card">
+          <div class="game-card-img">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Neon city skyline and night action">
+            <span class="game-card-num">01</span>
+          </div>
+          <div class="game-card-content">
+            <h3>VICE CITY</h3>
+            <p>Neon nights, lively streets, and endless action across the city.</p>
+          </div>
+        </article>
+
+        <article class="game-card">
+          <div class="game-card-img">
+            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=800&q=80" alt="Gamer playing action title">
+            <span class="game-card-num">02</span>
+          </div>
+          <div class="game-card-content">
+            <h3>STORY &amp; MISSIONS</h3>
+            <p>Jump into fast-paced missions, heists, and free-roam adventures.</p>
+          </div>
+        </article>
+
+        <article class="game-card">
+          <div class="game-card-img">
+            <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=800&q=80" alt="Handheld and mobile gaming experience">
+            <span class="game-card-num">03</span>
+          </div>
+          <div class="game-card-content">
+            <h3>MOBILE CONTROLS</h3>
+            <p>Responsive touch layout with optional controller support on the go.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Recent Player Downloads & Reviews -->
+    <section class="download-section" id="players">
+      <div class="section-wrap reveal">
+        <span class="section-kicker">03 — COMMUNITY ACTIVITY</span>
+        <h2>RECENT<br><em>DOWNLOADS.</em></h2>
+        <div class="activity-grid">
+          <article class="activity-card">
+            <div class="activity-top">
+              <span class="player-badge">LUCIA B.</span>
+              <span class="device-pill">Android • Galaxy S23</span>
+            </div>
+            <div class="stars-row">★★★★★</div>
+            <p>"Downloaded the APK pack smoothly and set up the touch layout in two minutes. Runs great on balanced mode."</p>
+            <div class="activity-meta">✓ Package installed • 4 mins ago</div>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-top">
+              <span class="player-badge">Chloe K.</span>
+              <span class="device-pill">iOS • iPhone 14</span>
+            </div>
+            <div class="stars-row">★★★★★</div>
+            <p>"Super clean interface and fast download window. Paired my controller and tested the city driving right away."</p>
+            <div class="activity-meta">✓ Package installed • 9 mins ago</div>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-top">
+              <span class="player-badge">Liam R.</span>
+              <span class="device-pill">Android • Poco X6 Pro</span>
+            </div>
+            <div class="stars-row">★★★★★</div>
+            <p>"Fast preparation speed and clear device requirements before starting. Very easy to follow."</p>
+            <div class="activity-meta">✓ Package installed • 14 mins ago</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation Guide -->
+    <section id="install">
+      <div class="section-wrap reveal">
+        <span class="section-kicker">04 — QUICK SETUP</span>
+        <h2>HOW TO<br><em>INSTALL.</em></h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-badge">STEP 01</span>
+            <h3>CHOOSE YOUR OS</h3>
+            <p>Click the Android or iOS download button above to prepare the installer package for your phone.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">STEP 02</span>
+            <h3>COMPLETE VERIFICATION</h3>
+            <p>Complete the verification step in the pop-up window to unlock your direct download link.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">STEP 03</span>
+            <h3>INSTALL &amp; PLAY</h3>
+            <p>Open the downloaded installer on your device, follow the on-screen prompts, and launch the game.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand-logo footer-mark" href="#top" aria-label="LUCIA VI Mobile footer home">
+      <span class="logo-emblem">
+        <span class="logo-main">LUCIA</span>
+        <span class="logo-vi">VI</span>
+      </span>
+      <span class="badge">MOBILE</span>
+    </a>
+    <p>LUCIA VI Mobile Hub landing page concept. Not affiliated with Rockstar Games.</p>
+    <span>© <span id="year"></span> — LUCIA VI MOBILE</span>
+  </footer>
+
+  <!-- Lucia Voice Audio Element (place welcome-to-lucia-gta-6.mp3 in the same folder as index.html) -->
+  <audio id="luciaWelcomeAudio" src="welcome-to-lucia-gta-6.mp3" preload="auto"></audio>
+
+  <!-- Live Toast Notification -->
+  <div class="toast-popup" id="toastPopup" role="status" aria-live="polite">
+    <div class="toast-icon">↓</div>
+    <div class="toast-text">
+      <b id="toastTitle">Alex R. just downloaded</b>
+      <span id="toastSub">GTA VI Android APK (3.8 GB) • 12s ago</span>
+    </div>
+  </div>
+
+  <!-- Download & Verification Content Locker Pop-up Modal -->
+  <div class="modal-overlay" id="downloadModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+      <div class="locker-symbol" aria-hidden="true"><span>LUCIA</span><b>VI</b></div>
+      <h3 id="modalTitle">PREPARING PACKAGE</h3>
+      <p id="modalDesc">Connecting to download server...</p>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+      <span class="progress-status" id="progressStatus">Initializing... 0%</span>
+
+      <!-- Content Locker Pop-up Slot -->
+      <div class="locker-popup-box" id="lockerPopupBox">
+        <span class="locker-badge">HUMAN VERIFICATION REQUIRED</span>
+        <div class="locker-popup-title">UNLOCK YOUR DOWNLOAD LINK</div>
+        <p class="locker-popup-desc">Complete one quick verification step below to start your download immediately.</p>
+        <div class="locker-embed-slot" id="lockerEmbedSlot">
+          <iframe class="locker-iframe" id="lockerIframe" title="Human Verification Locker"></iframe>
+          <a class="btn-locker-open" id="lockerDirectBtn" href="https://trckapp.org/cl/i/pq3n44" target="_blank" rel="noopener noreferrer">
+            VERIFY &amp; UNLOCK DOWNLOAD →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Set current year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Content Locker URL
+    const LOCKER_URL = "https://trckapp.org/cl/i/pq3n44";
+
+    // Lucia MP3 Audio Player ("welcome-to-lucia-gta-6.mp3")
+    const luciaAudioEl = document.getElementById('luciaWelcomeAudio');
+    const voiceBtn = document.getElementById('voiceReplayBtn');
+    const voiceBtnText = document.getElementById('voiceBtnText');
+    let hasPlayedWelcome = false;
+
+    luciaAudioEl.addEventListener('play', () => {
+      hasPlayedWelcome = true;
+      voiceBtn.classList.add('speaking');
+      voiceBtnText.textContent = 'Playing...';
+    });
+
+    luciaAudioEl.addEventListener('ended', () => {
+      voiceBtn.classList.remove('speaking');
+      voiceBtnText.textContent = 'Lucia Voice';
+    });
+
+    luciaAudioEl.addEventListener('pause', () => {
+      voiceBtn.classList.remove('speaking');
+      voiceBtnText.textContent = 'Lucia Voice';
+    });
+
+    function playLuciaAudio(forceReplay = false) {
+      if (!forceReplay && hasPlayedWelcome) return;
+      luciaAudioEl.currentTime = 0;
+      luciaAudioEl.play().catch(() => {});
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => playLuciaAudio(false), 300);
+    });
+
+    function unlockAudioOnInteraction() {
+      if (!hasPlayedWelcome) {
+        playLuciaAudio(false);
+      }
+      document.removeEventListener('pointerdown', unlockAudioOnInteraction);
+      document.removeEventListener('keydown', unlockAudioOnInteraction);
+      document.removeEventListener('touchstart', unlockAudioOnInteraction);
+    }
+
+    document.addEventListener('pointerdown', unlockAudioOnInteraction, { once: true });
+    document.addEventListener('keydown', unlockAudioOnInteraction, { once: true });
+    document.addEventListener('touchstart', unlockAudioOnInteraction, { once: true });
+
+    // Top scroll progress bar
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      document.getElementById('scrollProgress').style.width = scrolled + '%';
+    });
+
+    // Intersection Observer for smooth scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Simulated Live Download Activity Ticker & Toast
+    const fakeActivities = [
+      { name: 'Alex R.', platform: 'Android APK', detail: 'GTA VI Android APK (3.8 GB)', time: 'just now' },
+      { name: 'Emma W.', platform: 'iOS Installer', detail: 'GTA VI iOS Package (4.1 GB)', time: '8s ago' },
+      { name: 'Noah T.', platform: 'Android APK', detail: 'GTA VI Android APK (3.8 GB)', time: '19s ago' },
+      { name: 'Sophia M.', platform: 'iOS Installer', detail: 'GTA VI iOS Package (4.1 GB)', time: '31s ago' },
+      { name: 'Lucas D.', platform: 'Android APK', detail: 'GTA VI Android APK (3.8 GB)', time: '45s ago' }
+    ];
+
+    let activityIndex = 0;
+    const toastEl = document.getElementById('toastPopup');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastSub = document.getElementById('toastSub');
+    const tickerUser = document.getElementById('tickerUser');
+    const tickerPlatform = document.getElementById('tickerPlatform');
+    const tickerTime = document.getElementById('tickerTime');
+
+    function cycleActivity() {
+      const item = fakeActivities[activityIndex % fakeActivities.length];
+      tickerUser.textContent = item.name;
+      tickerPlatform.textContent = item.platform;
+      tickerTime.textContent = item.time;
+
+      toastTitle.textContent = `${item.name} downloaded`;
+      toastSub.textContent = `${item.detail} • ${item.time}`;
+      toastEl.classList.add('show');
+
+      setTimeout(() => {
+        toastEl.classList.remove('show');
+      }, 4200);
+
+      activityIndex++;
+    }
+
+    setTimeout(cycleActivity, 1400);
+    setInterval(cycleActivity, 6500);
+
+    // Download Pop-up -> Reveals Verification Content Locker Pop-up
+    let progressInterval;
+    function startDownload(platformLabel) {
+      const modal = document.getElementById('downloadModal');
+      const title = document.getElementById('modalTitle');
+      const desc = document.getElementById('modalDesc');
+      const bar = document.getElementById('progressBar');
+      const status = document.getElementById('progressStatus');
+      const lockerBox = document.getElementById('lockerPopupBox');
+      const lockerIframe = document.getElementById('lockerIframe');
+      const lockerBtn = document.getElementById('lockerDirectBtn');
+
+      title.textContent = platformLabel;
+      desc.textContent = 'Preparing installer package for your device...';
+      bar.style.width = '0%';
+      lockerBox.classList.remove('active');
+      lockerIframe.removeAttribute('src');
+      lockerBtn.href = LOCKER_URL;
+      modal.classList.add('active');
+
+      let pct = 0;
+      clearInterval(progressInterval);
+      progressInterval = setInterval(() => {
+        pct += Math.floor(Math.random() * 22) + 15;
+        if (pct >= 100) {
+          pct = 100;
+          clearInterval(progressInterval);
+          bar.style.width = '100%';
+          status.textContent = 'Package Ready — Verification Required (100%)';
+          desc.textContent = 'Complete the verification step below to unlock your download.';
+          lockerIframe.src = LOCKER_URL;
+          lockerBox.classList.add('active');
+        } else {
+          bar.style.width = pct + '%';
+          status.textContent = 'Preparing files... ' + pct + '%';
+        }
+      }, 240);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('downloadModal');
+      const lockerIframe = document.getElementById('lockerIframe');
+      modal.classList.remove('active');
+      lockerIframe.removeAttribute('src');
+      clearInterval(progressInterval);
+    }
+  </script>
+</body>
+</html>
