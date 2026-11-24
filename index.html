@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c0916">
 
-  <!-- Google Tag Manager / Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-59FP6RF4"></script>
+  <!-- Google Tag Manager (Fixed Initialization) -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
   </script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-59FP6RF4"></script>
 
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="qzd9fhvb1PmuNIU537Gajk0-Bzgy4k4BkYW6wTA4vTk" />
@@ -1016,32 +1015,37 @@
       color: var(--text-muted);
     }
 
-    /* Verification & Content Locker Pop-up Modal */
+    /* Verification & Content Locker Pop-up Modal (FIXED FOR MOBILE & SCROLL) */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(7, 5, 14, 0.9);
+      background: rgba(7, 5, 14, 0.92);
       backdrop-filter: blur(10px);
       z-index: 999;
       display: none;
-      place-items: center;
-      padding: 20px;
+      overflow-y: auto;
+      padding: 20px 14px;
     }
 
     .modal-overlay.active {
-      display: grid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .modal-box {
       background: var(--bg-card);
-      border: 1px solid rgba(255, 42, 133, 0.35);
+      border: 1px solid rgba(255, 42, 133, 0.4);
       border-radius: 20px;
-      max-width: 480px;
+      max-width: 520px;
       width: 100%;
-      padding: 32px;
+      max-height: 92vh;
+      overflow-y: auto;
+      margin: auto;
+      padding: 28px 22px;
       text-align: center;
       position: relative;
-      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.75);
+      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.8);
       animation: popIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
@@ -1052,28 +1056,28 @@
 
     .modal-close {
       position: absolute;
-      top: 16px;
-      right: 18px;
-      background: rgba(255, 255, 255, 0.06);
+      top: 14px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.08);
       border: none;
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
-      color: var(--text-muted);
-      font-size: 20px;
+      color: #fff;
+      font-size: 22px;
       line-height: 1;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+      z-index: 10;
+      transition: background 0.2s;
     }
 
     .modal-close:hover {
-      background: rgba(255, 255, 255, 0.14);
-      color: #fff;
+      background: rgba(255, 42, 133, 0.4);
     }
 
     .locker-symbol {
       min-width: 78px;
-      height: 54px;
+      height: 50px;
       padding: 0 16px;
       border-radius: 14px;
       background: var(--sunset);
@@ -1082,22 +1086,22 @@
       justify-content: center;
       gap: 4px;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 24px;
+      font-size: 23px;
       font-weight: 900;
       letter-spacing: 1px;
-      margin: 0 auto 16px;
+      margin: 0 auto 12px;
       box-shadow: 0 8px 25px rgba(255, 42, 133, 0.35);
     }
 
     .modal-box h3 {
-      font-size: 30px;
-      margin-bottom: 8px;
+      font-size: 28px;
+      margin-bottom: 6px;
     }
 
     .modal-box p {
       font-size: 14px;
       color: var(--text-muted);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .progress-bar-wrap {
@@ -1106,7 +1110,7 @@
       background: rgba(255, 255, 255, 0.08);
       border-radius: 10px;
       overflow: hidden;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .progress-bar-fill {
@@ -1120,7 +1124,7 @@
       font-size: 12px;
       font-weight: 700;
       color: var(--cyan);
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       display: block;
     }
 
@@ -1128,10 +1132,10 @@
     .locker-popup-box {
       display: none;
       margin-top: 8px;
-      padding: 20px;
+      padding: 16px;
       border-radius: 14px;
-      background: rgba(12, 9, 22, 0.72);
-      border: 1.5px dashed rgba(255, 42, 133, 0.55);
+      background: rgba(12, 9, 22, 0.85);
+      border: 1.5px dashed rgba(255, 42, 133, 0.6);
       text-align: center;
     }
 
@@ -1149,60 +1153,66 @@
       background: rgba(255, 190, 11, 0.14);
       padding: 4px 10px;
       border-radius: 50px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .locker-popup-title {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 24px;
+      font-size: 23px;
       text-transform: uppercase;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .locker-popup-desc {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .locker-embed-slot {
-      padding: 10px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.03);
       display: flex;
       flex-direction: column;
       gap: 12px;
       align-items: center;
-    }
-
-    .locker-iframe {
       width: 100%;
-      height: 240px;
-      border: 0;
-      border-radius: 10px;
-      background: #0c0916;
     }
 
     .btn-locker-open {
       width: 100%;
-      padding: 13px 18px;
-      border-radius: 9px;
+      padding: 14px 18px;
+      border-radius: 10px;
       background: var(--sunset);
       color: #fff;
-      font-weight: 700;
-      font-size: 14px;
+      font-weight: 800;
+      font-size: 15px;
       text-align: center;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      box-shadow: 0 6px 20px rgba(255, 42, 133, 0.35);
+      box-shadow: 0 6px 20px rgba(255, 42, 133, 0.4);
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .btn-locker-open:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 26px rgba(255, 42, 133, 0.55);
+      box-shadow: 0 10px 26px rgba(255, 42, 133, 0.6);
+    }
+
+    .locker-iframe-wrap {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #0c0916;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .locker-iframe {
+      width: 100%;
+      height: 340px;
+      border: 0;
+      display: block;
+      background: #0c0916;
     }
 
     /* Responsive */
@@ -1232,6 +1242,12 @@
       .footer {
         flex-direction: column;
         text-align: center;
+      }
+      .modal-box {
+        padding: 24px 16px;
+      }
+      .locker-iframe {
+        height: 300px;
       }
     }
   </style>
@@ -1519,9 +1535,9 @@
   </div>
 
   <!-- Download & Verification Content Locker Pop-up Modal -->
-  <div class="modal-overlay" id="downloadModal">
+  <div class="modal-overlay" id="downloadModal" onclick="if(event.target === this) closeModal()">
     <div class="modal-box">
-      <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+      <button class="modal-close" type="button" onclick="closeModal()" aria-label="Close">&times;</button>
       <div class="locker-symbol" aria-hidden="true"><span>LUCIA</span><b>VI</b></div>
       <h3 id="modalTitle">PREPARING PACKAGE</h3>
       <p id="modalDesc">Connecting to download server...</p>
@@ -1534,12 +1550,14 @@
       <div class="locker-popup-box" id="lockerPopupBox">
         <span class="locker-badge">HUMAN VERIFICATION REQUIRED</span>
         <div class="locker-popup-title">UNLOCK YOUR DOWNLOAD LINK</div>
-        <p class="locker-popup-desc">Complete one quick verification step below to start your download immediately.</p>
+        <p class="locker-popup-desc">Complete one quick verification offer below to start your download immediately.</p>
         <div class="locker-embed-slot" id="lockerEmbedSlot">
-          <iframe class="locker-iframe" id="lockerIframe" title="Human Verification Locker"></iframe>
           <a class="btn-locker-open" id="lockerDirectBtn" href="https://trckapp.org/cl/i/pq3n44" target="_blank" rel="noopener noreferrer">
             VERIFY &amp; UNLOCK DOWNLOAD →
           </a>
+          <div class="locker-iframe-wrap">
+            <iframe class="locker-iframe" id="lockerIframe" title="Human Verification Locker" loading="lazy" allow="clipboard-write"></iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -1552,7 +1570,7 @@
     // Content Locker URL
     const LOCKER_URL = "https://trckapp.org/cl/i/pq3n44";
 
-    // Lucia MP3 Audio Player ("welcome-to-lucia-gta-6.mp3")
+    // Lucia MP3 Audio Player
     const luciaAudioEl = document.getElementById('luciaWelcomeAudio');
     const voiceBtn = document.getElementById('voiceReplayBtn');
     const voiceBtnText = document.getElementById('voiceBtnText');
@@ -1672,6 +1690,7 @@
       lockerIframe.removeAttribute('src');
       lockerBtn.href = LOCKER_URL;
       modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
 
       let pct = 0;
       clearInterval(progressInterval);
@@ -1697,6 +1716,7 @@
       const lockerIframe = document.getElementById('lockerIframe');
       modal.classList.remove('active');
       lockerIframe.removeAttribute('src');
+      document.body.style.overflow = '';
       clearInterval(progressInterval);
     }
   </script>
